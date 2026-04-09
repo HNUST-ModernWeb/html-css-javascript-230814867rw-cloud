@@ -1,0 +1,496 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background 0.5s ease;
+}
+
+/* 主题背景色 */
+body.default-bg {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+body.lightblue-bg {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+body.lightgreen-bg {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+body.lightpink-bg {
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+/* 标题 */
+.title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* 主题切换器 */
+.theme-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.theme-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #e0e0e0;
+    color: #333;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.theme-btn.active {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* 卡片样式 */
+.card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 头像区域 */
+.avatar-section {
+    margin-bottom: 25px;
+}
+
+.avatar-container {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #f8f9fa;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+}
+
+.avatar-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.avatar-overlay:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+}
+
+.avatar-overlay i {
+    font-size: 18px;
+}
+
+.avatar-overlay input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+/* 信息显示区域 */
+.info-section {
+    margin-bottom: 25px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.display-name {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.display-bio {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* 编辑区域 */
+.edit-section {
+    margin-bottom: 25px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* 输入框包裹器 */
+.input-wrapper, .textarea-wrapper {
+    position: relative;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 12px 40px 12px 15px; /* 右侧留出清除按钮空间 */
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* 字数超限样式 */
+.form-textarea.over-limit {
+    color: #e74c3c;
+    border-color: #e74c3c;
+    background: #ffeaea;
+}
+
+.form-textarea.over-limit:focus {
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* 清除按钮 */
+.clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: #e74c3c;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.clear-btn:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+    background: #c0392b;
+}
+
+.textarea-wrapper .clear-btn {
+    top: 20px;
+    transform: none;
+}
+
+/* 字数计数器 */
+.char-counter {
+    text-align: right;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: #7f8c8d;
+}
+
+.char-counter.over-limit {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-edit:active {
+    transform: translateY(0);
+}
+
+.edit-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.btn-save:hover {
+    background: linear-gradient(135deg, #27ae60, #219653);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+.btn-cancel {
+    background: #95a5a6;
+    color: white;
+    flex: 1;
+}
+
+.btn-cancel:hover {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+/* 操作区域 */
+.action-section {
+    margin-top: 20px;
+}
+
+/* 状态提示 */
+.status {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: none;
+    animation: fadeIn 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+}
+
+.status.show {
+    display: block;
+}
+
+/* 确认对话框 */
+.confirm-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.confirm-dialog.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dialog-content {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: dialogIn 0.3s ease;
+}
+
+@keyframes dialogIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.8) translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
+
+.dialog-content h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.dialog-content p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.dialog-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-no {
+    background: #e74c3c;
+    color: white;
+    flex: 1;
+    padding: 10px 20px;
+}
+
+.btn-no:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+.btn-yes {
+    background: #2ecc71;
+    color: white;
+    flex: 1;
+    padding: 10px 20px;
+}
+
+.btn-yes:hover {
+    background: #27ae60;
+    transform: translateY(-2px);
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .card {
+        padding: 25px 20px;
+    }
+    
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .display-name {
+        font-size: 1.6rem;
+    }
+    
+    .edit-actions {
+        flex-direction: column;
+    }
+    
+    .dialog-content {
+        padding: 20px;
+    }
+    
+    .theme-switcher {
+        gap: 5px;
+    }
+    
+    .theme-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}

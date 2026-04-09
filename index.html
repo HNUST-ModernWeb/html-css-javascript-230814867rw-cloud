@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息卡片 | 高级Web课程作业</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">个人信息卡片</h1>
+        
+        <!-- 背景颜色切换按钮 -->
+        <div class="theme-switcher">
+            <button class="theme-btn active" data-color="default">默认</button>
+            <button class="theme-btn" data-color="lightblue">浅蓝</button>
+            <button class="theme-btn" data-color="lightgreen">浅绿</button>
+            <button class="theme-btn" data-color="lightpink">浅粉</button>
+        </div>
+        
+        <div class="card">
+            <!-- 头像区域 -->
+            <div class="avatar-section">
+                <div class="avatar-container">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="个人头像" class="avatar" id="avatarDisplay">
+                    <div class="avatar-overlay" id="avatarUpload">
+                        <i class="fas fa-camera"></i>
+                        <input type="file" id="avatarInput" accept="image/*">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 显示区域 -->
+            <div class="info-section" id="infoDisplay">
+                <h2 class="display-name" id="nameDisplay">任雯</h2>
+                <p class="display-bio" id="bioDisplay">我是一名前端开发工程师，热爱编程和设计。擅长HTML、CSS、JavaScript，喜欢探索新技术，创造优美的用户体验。</p>
+            </div>
+            
+            <!-- 编辑区域（默认隐藏） -->
+            <div class="edit-section" id="editSection" style="display: none;">
+                <div class="form-group">
+                    <label for="nameInput">姓名</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="nameInput" class="form-input" placeholder="请输入您的姓名">
+                        <button class="clear-btn" id="clearNameBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bioInput">个人简介</label>
+                    <div class="textarea-wrapper">
+                        <textarea id="bioInput" class="form-textarea" placeholder="请介绍一下自己..." rows="3"></textarea>
+                        <button class="clear-btn" id="clearBioBtn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="char-counter">
+                        字数: <span id="charCount">0</span>/<span id="maxChars">150</span>
+                    </div>
+                </div>
+                
+                <div class="edit-actions">
+                    <button class="btn btn-cancel" id="cancelBtn">取消</button>
+                    <button class="btn btn-save" id="saveBtn">保存</button>
+                </div>
+            </div>
+            
+            <!-- 操作按钮 -->
+            <div class="action-section">
+                <button class="btn btn-edit" id="editBtn">
+                    <i class="fas fa-edit"></i> 编辑信息
+                </button>
+            </div>
+            
+            <!-- 状态提示 -->
+            <div class="status" id="saveStatus"></div>
+        </div>
+    </div>
+
+    <!-- 确认对话框 -->
+    <div class="confirm-dialog" id="confirmDialog">
+        <div class="dialog-content">
+            <h3>确认保存</h3>
+            <p id="dialogMessage">确定要保存个人信息吗？</p>
+            <div class="dialog-actions">
+                <button class="btn btn-no" id="cancelConfirmBtn">取消</button>
+                <button class="btn btn-yes" id="confirmSaveBtn">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入字体图标 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
